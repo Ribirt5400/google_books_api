@@ -1,24 +1,6 @@
 <template>
     <div class="login-page">
         <h1>Iniciar sesión</h1>
-        <Form @submit="onSubmit">
-            <div class="form-group">
-                <label for="email">Correo electrónico:</label>
-                <Field name="email" type="email" class="form-control" rules="required|email"
-                    placeholder="Ingresa tu correo electrónico" />
-                <ErrorMessage name="email" class="text-danger" />
-            </div>
-
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <Field name="password" type="password" class="form-control" rules="required|min:6"
-                    placeholder="Ingresa tu contraseña" />
-                <ErrorMessage name="password" class="text-danger" />
-            </div>
-
-            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-        </Form>
-
         <!-- Botón de "Iniciar sesión con Google" -->
         <div class="mt-3">
             <button @click="loginWithGoogle" class="btn btn-google">
@@ -88,6 +70,7 @@ export default {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #f5f1e3;
 }
 
 .form-group {

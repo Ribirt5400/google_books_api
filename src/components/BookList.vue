@@ -29,9 +29,7 @@ export default {
 .book-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* Cuadrícula flexible */
-    gap: 20px;
-    /* Espacio entre las tarjetas */
+    gap: 10px;
 }
 
 /* Estilos responsive */

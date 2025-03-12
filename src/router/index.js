@@ -5,7 +5,7 @@ import ProfilePage from '@/pages/ProfilePage.vue'
 import LoginPage from '@/pages/LoginPage.vue'
 import RegisterPage from '@/pages/RegisterPage.vue'
 import AuthCallBack from '@/pages/AuthCallBack.vue'
-import CreateBookshelf from '@/components/CreateBookshelf.vue'
+import ShelfDetails from '@/pages/ShelfDetails.vue'
 
 const routes = [
   { path: '/', component: HomePage },
@@ -14,7 +14,7 @@ const routes = [
   { path: '/login', component: LoginPage },
   { path: '/register', component: RegisterPage },
   { path: '/auth/callback', component: AuthCallBack },
-  { path: '/create-shelf', component: CreateBookshelf },
+  { path: '/shelf/:id', component: ShelfDetails, name: 'shelf-details', props: true },
 ]
 
 const router = createRouter({

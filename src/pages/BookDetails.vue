@@ -14,12 +14,29 @@
             <p><strong>Editorial:</strong> {{ book.volumeInfo.publisher || 'Desconocida' }}</p>
             <p><strong>Páginas:</strong> {{ book.volumeInfo.pageCount || 'Desconocido' }}</p>
             <p><strong>Idioma:</strong> {{ book.volumeInfo.language || 'Desconocido' }}</p>
+
+            <!-- Botón y menú desplegable para añadir a una colección -->
+            <div class="add-to-shelf">
+                <button @click.stop="toggleDropdown" class="btn btn-primary">
+                    Añadir a colección
+                </button>
+                <!-- Menú desplegable -->
+                <div v-if="showDropdown" class="dropdown-container">
+                    <div class="dropdown">
+                        <div v-for="shelf in shelves" :key="shelf.id" class="dropdown-item"
+                            @click="addToShelf(shelf.id)">
+                            {{ shelf.title }}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import { fetchBookDetails } from '@/services/fetchbooks'; // Importa la función para obtener detalles del libro
+import { useBooksStore } from '@/stores/booksStore';
 
 export default {
     name: 'BookDetails',
@@ -28,7 +45,15 @@ export default {
             book: null, // Almacena los detalles del libro
             loading: false, // Estado de carga
             error: null, // Mensaje de error
+            showDropdown: false, // Controla la visibilidad del menú desplegable
         };
+    },
+    computed: {
+        // Obtener las coleccións del store
+        shelves() {
+            const booksStore = useBooksStore();
+            return booksStore.shelves;
+        },
     },
     async created() {
         await this.loadBookDetails();
@@ -48,6 +73,19 @@ export default {
                 this.loading = false;
             }
         },
+        toggleDropdown() {
+            this.showDropdown = !this.showDropdown; // Alternar la visibilidad del menú
+        },
+        async addToShelf(shelfId) {
+            const booksStore = useBooksStore();
+            try {
+                await booksStore.addBookToShelf(shelfId, this.book.id);
+                alert('Libro añadido correctamente.');
+                this.showDropdown = false; // Cerrar el menú después de añadir el libro
+            } catch (error) {
+                alert(error.message);
+            }
+        },
     },
 };
 </script>
@@ -57,6 +95,8 @@ export default {
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    background-color: #f5f1e3;
 }
 
 .book-details img {
@@ -72,5 +112,57 @@ export default {
 
 .book-details p {
     margin-bottom: 10px;
+}
+
+.add-to-shelf {
+    position: relative;
+    margin-top: 20px;
+}
+
+.dropdown-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    min-width: 150px;
+    background-color: #f5f1e3;
+}
+
+.dropdown {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-item.empty-shelf {
+    color: #6c757d;
+    pointer-events: none;
+}
+
+.btn-primary {
+    background-color: #1D428A;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #163b6f;
 }
 </style>

@@ -59,7 +59,7 @@ export default {
     /* Beige claro */
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    max-width: 1500px;
     margin: auto;
 }
 

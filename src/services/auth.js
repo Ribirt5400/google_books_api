@@ -4,13 +4,7 @@ export const redirectUri = 'http://localhost:5173/auth/callback' // URI de redir
 
 // Función para iniciar el flujo de autenticación
 export const login = () => {
-  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?
-    client_id=${CLIENT_ID}&
-    redirect_uri=${redirectUri}&
-    response_type=token&
-    scope=https://www.googleapis.com/auth/books&
-    access_type=offline&
-    prompt=consent`
+  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${redirectUri}&response_type=token&scope=https://www.googleapis.com/auth/books&access_type=offline&prompt=consent`
 
   window.location.href = authUrl // Redirige a la página de autenticación de Google
 }

@@ -1,34 +1,7 @@
 <template>
     <div class="register-page">
-        <h1>Registro de Usuario</h1>
-        <Form @submit="onSubmit">
-            <div class="form-group">
-                <label for="name">Nombre:</label>
-                <Field name="name" type="text" class="form-control" rules="required" />
-                <ErrorMessage name="name" class="text-danger" />
-            </div>
+        <h1>Registro</h1>
 
-            <div class="form-group">
-                <label for="email">Correo electrónico:</label>
-                <Field name="email" type="email" class="form-control" rules="required|email" />
-                <ErrorMessage name="email" class="text-danger" />
-            </div>
-
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <Field name="password" type="password" class="form-control" rules="required|min:6" />
-                <ErrorMessage name="password" class="text-danger" />
-            </div>
-
-            <div class="form-group">
-                <label for="confirmPassword">Confirmar contraseña:</label>
-                <Field name="confirmPassword" type="password" class="form-control"
-                    rules="required|confirmed:@password" />
-                <ErrorMessage name="confirmPassword" class="text-danger" />
-            </div>
-
-            <button type="submit" class="btn btn-primary">Registrarse</button>
-        </Form>
 
         <!-- Botón de "Registrarse con Google" -->
         <div class="mt-3">
@@ -90,6 +63,7 @@ export default {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #f5f1e3;
 }
 
 .form-group {

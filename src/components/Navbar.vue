@@ -52,48 +52,7 @@ export default {
 </script>
 
 <style scoped>
+@import './../assets/styles.scss';
+
 /* Fondo con un tono madera oscuro para un estilo clásico */
-.navbar {
-    background-color: #5D4037;
-    /* Marrón oscuro */
-    padding: 15px 20px;
-    border-bottom: 3px solid #D7B377;
-    /* Línea dorada elegante */
-}
-
-/* Marca de la app con una tipografía serif elegante */
-.navbar-brand {
-    font-family: 'Georgia', serif;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #FFD700 !important;
-    /* Dorado */
-}
-
-/* Links del navbar */
-.nav-link {
-    font-size: 1.1rem;
-    font-family: 'Georgia', serif;
-    color: #F5F5DC !important;
-    /* Beige claro */
-    transition: color 0.3s ease;
-}
-
-/* Cambio de color al pasar el mouse */
-.nav-link:hover {
-    color: #FFD700 !important;
-    /* Dorado */
-}
-
-/* Botón de hamburguesa para dispositivos móviles */
-.navbar-toggler {
-    border: 2px solid #FFD700;
-    /* Dorado */
-}
-
-/* Icono del menú hamburguesa */
-.navbar-toggler-icon {
-    filter: invert(100%);
-    /* Lo hace blanco */
-}
 </style>
