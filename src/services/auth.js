@@ -1,28 +1,30 @@
-const clientId = 'AIzaSyCVb62Yiz5NYjNssxk-DpBA0lil8hD4M48' // Reemplaza con tu clientId
-const redirectUri = 'http://localhost:5174' // Asegúrate de que coincida con la URI de redireccionamiento
+export const API_KEY = 'AIzaSyCVb62Yiz5NYjNssxk-DpBA0lil8hD4M48' // Clave de la API (para peticiones públicas)
+export const CLIENT_ID = '1045115965460-07kbq3i0gps2hahuidj9dm6p4eu9vbn6.apps.googleusercontent.com' // ID de cliente de Google
+export const redirectUri = 'http://localhost:5173/auth/callback' // URI de redirección
 
 // Función para iniciar el flujo de autenticación
 export const login = () => {
-  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=https://www.googleapis.com/auth/books`
-  window.location.href = authUrl
+  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?
+    client_id=${CLIENT_ID}&
+    redirect_uri=${redirectUri}&
+    response_type=token&
+    scope=https://www.googleapis.com/auth/books&
+    access_type=offline&
+    prompt=consent`
+
+  window.location.href = authUrl // Redirige a la página de autenticación de Google
 }
 
-// Función para intercambiar el código de autorización por un token de acceso
-export const getToken = async (code) => {
-  const response = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      code,
-      client_id: clientId,
-      redirect_uri: redirectUri,
-      grant_type: 'authorization_code',
-    }),
-  })
-  if (!response.ok) {
-    throw new Error('Error fetching token')
+// Función para manejar la redirección de Google y extraer el token
+export const handleAuthRedirect = () => {
+  const hash = window.location.hash.substring(1) // Elimina el "#" del hash
+  const params = new URLSearchParams(hash) // Convierte el hash en un objeto de parámetros
+  const accessToken = params.get('access_token') // Obtén el token de acceso
+
+  if (accessToken) {
+    localStorage.setItem('token', accessToken) // Guarda el token en localStorage
+    return accessToken
   }
-  return response.json()
+
+  return null // No se encontró un token
 }

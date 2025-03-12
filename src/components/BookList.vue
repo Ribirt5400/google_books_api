@@ -1,27 +1,51 @@
 <template>
     <div class="book-list">
-        <BookCard v-for="book in books" :key="book.id" :book="book" />
+        <div v-if="books.length === 0">No se encontraron libros.</div>
+        <div v-else class="book-grid">
+            <BookCard v-for="book in books" :key="book.id" :book="book" />
+        </div>
     </div>
 </template>
 
 <script>
-import BookCard from '@/components/BookCard.vue';
-import { useBooksStore } from '@/stores/booksStore';
+import BookCard from './BookCard.vue';
 
 export default {
-    name: 'BookList',
     components: {
         BookCard,
     },
-    computed: {
-        books() {
-            const booksStore = useBooksStore();
-            return booksStore.books;
-        },
+    props: {
+        books: { type: Array, required: true }, // Recibe la lista de libros
     },
 };
 </script>
 
 <style scoped>
-/* Estilos del listado */
+.book-list {
+    padding: 20px;
+    /* Espaciado alrededor de la cuadrícula */
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Cuadrícula flexible */
+    gap: 20px;
+    /* Espacio entre las tarjetas */
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        /* Tarjetas más pequeñas en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        /* Tarjetas aún más pequeñas en móviles */
+    }
+}
 </style>

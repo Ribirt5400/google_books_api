@@ -1,0 +1,105 @@
+// Variables de colores y tipografía
+$primary-bg: #f5f1e3; // Fondo beige antiguo
+$text-color: #3e2723; // Marrón oscuro
+$accent: #8d6e63; // Marrón madera
+$highlight: #c62828; // Rojo borgoña
+$border-color: #d7ccc8; // Gris cálido
+
+$font-title: 'Merriweather', serif;
+$font-body: 'Lora', serif;
+
+// Reset y configuración base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $primary-bg;
+  color: $text-color;
+  font-family: $font-body;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+// Estilo de títulos
+h1,
+h2,
+h3 {
+  font-family: $font-title;
+  color: $text-color;
+}
+
+// Estilos de tarjetas de libros
+.book-card {
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  h3 {
+    color: $highlight;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 14px;
+    color: darken($text-color, 10%);
+  }
+}
+
+// Botón clásico
+.button {
+  background-color: $highlight;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darken($highlight, 10%);
+  }
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+    }
+
+    .form-button {
+      @extend .button;
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+
+  a {
+    color: $accent;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $highlight;
+    }
+  }
+}
