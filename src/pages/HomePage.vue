@@ -22,9 +22,9 @@ export default {
     },
     data() {
         return {
-            books: [], // Almacena los libros obtenidos de la API
-            loading: false, // Estado de carga
-            error: null, // Mensaje de error
+            books: [],
+            loading: false,
+            error: null,
         };
     },
     methods: {
@@ -38,8 +38,8 @@ export default {
                     // Si la consulta está vacía, limpiar la lista de libros
                     this.books = [];
                 } else {
-                    await booksStore.searchBooks(query, 20); // Pasa el parámetro maxResults (20 en este caso)
-                    this.books = booksStore.books; // Actualiza la lista de libros
+                    await booksStore.searchBooks(query, 20); // asi salen 20 resultados por busqueda
+                    this.books = booksStore.books; // actualiza la lista de libros
                 }
             } catch (error) {
                 this.error = 'Error al buscar libros. Inténtalo de nuevo más tarde.';
@@ -56,7 +56,6 @@ export default {
     text-align: center;
     padding: 20px;
     background-color: #FAF3E0;
-    /* Beige claro */
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 1500px;
@@ -67,7 +66,6 @@ h1 {
     font-size: 28px;
     font-family: 'Garamond', serif;
     color: #8B4513;
-    /* Marrón */
     margin-bottom: 20px;
 }
 

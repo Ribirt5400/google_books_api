@@ -21,7 +21,7 @@ export default {
     // Verifica el token al cargar la aplicación
     await authStore.checkToken();
 
-    // Maneja el código de autorización (si está presente en la URL)
+    // si el codigo de autorizacion esta presente en la url, lo maneja
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     if (code) {

@@ -1,33 +1,67 @@
-# google_books_api
+# Biblioteca Virtual - Proyecto Vue con Google Books API
 
-This template should help get you started developing with Vue 3 in Vite.
+## Descripción del Proyecto
 
-## Recommended IDE Setup
+Biblioteca Virtual es una aplicación web desarrollada con **Vue 3** que permite a los usuarios explorar libros, gestionar estanterías personalizadas y realizar operaciones como añadir, eliminar o mover libros entre estanterías. La aplicación consume la **API de Google Books** para obtener información sobre los libros y utiliza **OAuth2.0** para la autenticación de usuarios.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Características Principales
 
-## Customize configuration
+- **Búsqueda de libros:** Los usuarios pueden buscar libros por título, autor o género.
+- **Gestión de estanterías:** Crear, editar y eliminar estanterías personalizadas.
+- **Autenticación:** Inicio de sesión con Google OAuth2.0.
+- **Operaciones CRUD:** Añadir, eliminar y mover libros entre colecciones.
+- **Diseño elegante:** Interfaz moderna con tonos marrones y dorados, animaciones y efectos de hover.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Tecnologías Utilizadas
 
-## Project Setup
+- **Frontend:**
+  - Vue 3
+  - Vue Router
+  - Pinia (gestión del estado)
+  - SweetAlert2 (avisos personalizados)
+  - Bootstrap (diseño y estilos)
+- **Autenticación:**
+  - OAuth2.0 con Google API
+- **API:**
+  - Google Books API
+
+## Requisitos del Proyecto
+
+- **5 peticiones GET:**
+  1. Obtener libros de una búsqueda.
+  2. Obtener las colecciones del usuario.
+  3. Obtener libros de una colección específica.
+  4. Obtener información del perfil del usuario.
+  5. Verificar el token de autenticación.
+- **5 peticiones POST, PUT, PATCH o DELETE:**
+  1. Añadir un libro a una colección.
+  2. Eliminar un libro de una colección.
+  3. Vaciar una colección.
+- **Autenticación:** OAuth2.0 con Google.
+- **Diseño:** Interfaz moderna y responsive realizada con Bootstrap.
+
+## Instalación y Configuración
+
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
+
+1. **Clona el repositorio:**
 
 ```sh
-npm install
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+   cd tu-repositorio
 ```
 
-### Compile and Hot-Reload for Development
+1.  **Instala las dependencias:**
 
 ```sh
-npm run dev
+    npm install
 ```
 
-### Compile and Minify for Production
+2.  **Inicia el servidor de desarrollo:**
 
 ```sh
-npm run build
+    npm run serve
 ```
 
-=======
-
-# google_books_api
+3.  **Accede a la aplicación:**\
+    Abre tu navegador y visita `http://localhost:5173`.

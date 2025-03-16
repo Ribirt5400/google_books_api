@@ -23,7 +23,6 @@ export default {
 <style scoped>
 .book-list {
     padding: 20px;
-    /* Espaciado alrededor de la cuadrícula */
 }
 
 .book-grid {
@@ -36,14 +35,12 @@ export default {
 @media (max-width: 768px) {
     .book-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        /* Tarjetas más pequeñas en pantallas pequeñas */
     }
 }
 
 @media (max-width: 480px) {
     .book-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        /* Tarjetas aún más pequeñas en móviles */
     }
 }
 </style>

@@ -2,7 +2,6 @@
     <div class="register-page">
         <h1>Registro</h1>
 
-
         <!-- Botón de "Registrarse con Google" -->
         <div class="mt-3">
             <button @click="registerWithGoogle" class="btn btn-google">

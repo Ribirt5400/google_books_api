@@ -20,7 +20,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { CLIENT_ID } from '@/services/auth'; // Importa el Client ID
 import { useAuthStore } from '@/stores/authStore'; // Importa el store de autenticación
-import { login, handleAuthRedirect } from '@/services/auth'; // Importa las funciones de autenticación
+import { handleAuthRedirect } from '@/services/auth'; // Importa las funciones de autenticación
 
 export default {
     name: 'LoginPage',

@@ -22,3 +22,5 @@ export const handleAuthRedirect = () => {
 
   return null // No se encontró un token
 }
+
+// Archivo donde se guardan variables sensibles, como la clave de la API o el ID del cliente

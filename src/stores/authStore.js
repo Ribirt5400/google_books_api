@@ -43,7 +43,7 @@ export const useAuthStore = defineStore('auth', {
     async fetchUserProfile() {
       const token = this.token
       if (!token) {
-        throw new Error('Debes iniciar sesión para obtener tu perfil.')
+        throw new Error('Debes iniciar sesión para obtener la información de tu perfil.')
       }
 
       try {

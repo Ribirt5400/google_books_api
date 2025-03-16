@@ -81,7 +81,7 @@ export default {
         },
 
         async removeBook(bookId) {
-            // Mostrar cuadro de confirmación con SweetAlert2
+            // cuadro de confirmación con SweetAlert2
             const result = await Swal.fire({
                 title: '¿Estás seguro?',
                 text: 'Este libro se eliminará de la colección.',

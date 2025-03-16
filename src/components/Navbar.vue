@@ -6,7 +6,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse show" id="navbarNav"> <!-- Agregar `show` para evitar errores -->
+            <div class="collapse navbar-collapse show" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <router-link to="/" class="nav-link">Inicio</router-link>
@@ -53,6 +53,4 @@ export default {
 
 <style scoped>
 @import './../assets/styles.scss';
-
-/* Fondo con un tono madera oscuro para un estilo clásico */
 </style>

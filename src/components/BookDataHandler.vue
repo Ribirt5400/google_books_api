@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!-- Mostrar estado de carga -->
     <div v-if="loading">Cargando...</div>
 
-    <!-- Mostrar mensaje de error -->
     <div v-if="error">{{ error }}</div>
 
     <!-- Pasar los datos a BookList.vue -->
@@ -19,13 +17,13 @@ export default {
     BookList,
   },
   props: {
-    query: { type: String, required: true }, // Recibe la consulta de búsqueda
+    query: { type: String, required: true }, // la consulta de búsqueda
   },
   data() {
     return {
-      loading: false, // Estado de carga
-      error: null,    // Mensaje de error
-      books: [],      // Lista de libros procesados
+      loading: false, // estado de carga
+      error: null,    // error al buscar libros
+      books: [],      // lista de libros
     };
   },
   watch: {
@@ -56,8 +54,8 @@ export default {
         this.books = data.items.map((item) => ({
           id: item.id,
           title: item.volumeInfo.title,
-          authors: item.volumeInfo.authors || ['Autor desconocido'], // Si no hay autores
-          description: item.volumeInfo.description || 'Descripción no disponible', // Si no hay descripción
+          authors: item.volumeInfo.authors || ['Autor desconocido'], // Si los autores son desconocidos
+          description: item.volumeInfo.description || 'Descripción no disponible', // Si no tiene descripción
           image: item.volumeInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/150', // Si no hay portada
         }));
       } catch (err) {

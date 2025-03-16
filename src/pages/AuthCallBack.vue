@@ -18,10 +18,10 @@ export default {
             authStore.setToken(accessToken)
 
             // Redirigir al usuario a la página principal
-            this.$router.push('/profile') // ← Cambia '/profile' por tu ruta protegida
+            this.$router.push('/profile')
         } else {
             console.error('Error: No se recibió el token de Google')
-            this.$router.push('/login') // Redirigir en caso de error
+            this.$router.push('/login')
         }
     }
 }

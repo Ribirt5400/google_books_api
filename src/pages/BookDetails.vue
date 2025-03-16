@@ -42,14 +42,14 @@ export default {
     name: 'BookDetails',
     data() {
         return {
-            book: null, // Almacena los detalles del libro
-            loading: false, // Estado de carga
-            error: null, // Mensaje de error
-            showDropdown: false, // Controla la visibilidad del menú desplegable
+            book: null, // detalles del libro
+            loading: false, // estado de carga
+            error: null, // error
+            showDropdown: false, // si el menú desplegable está visible o no
         };
     },
     computed: {
-        // Obtener las coleccións del store
+        // Obtener las colecciones del store
         shelves() {
             const booksStore = useBooksStore();
             return booksStore.shelves;
@@ -64,8 +64,8 @@ export default {
             this.error = null;
 
             try {
-                const bookId = this.$route.params.id; // Obtén el ID del libro desde la ruta
-                this.book = await fetchBookDetails(bookId); // Obtén los detalles del libro
+                const bookId = this.$route.params.id; // ID del libro desde la ruta
+                this.book = await fetchBookDetails(bookId); // detalles del libro
             } catch (err) {
                 this.error = 'Error al cargar los detalles del libro. Inténtalo de nuevo más tarde.';
                 console.error(err);
@@ -74,7 +74,7 @@ export default {
             }
         },
         toggleDropdown() {
-            this.showDropdown = !this.showDropdown; // Alternar la visibilidad del menú
+            this.showDropdown = !this.showDropdown; // cambiar la visibilidad del menú
         },
         async addToShelf(shelfId) {
             const booksStore = useBooksStore();

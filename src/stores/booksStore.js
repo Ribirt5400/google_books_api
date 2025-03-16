@@ -4,11 +4,11 @@ import { useAuthStore } from '@/stores/authStore' // Importa el store de autenti
 
 export const useBooksStore = defineStore('books', {
   state: () => ({
-    books: [], // Almacena los libros obtenidos de la API
-    shelves: [], // Almacena las coleccións del usuario
-    loading: false, // Indica si se está cargando la información
+    books: [],
+    shelves: [], // Almacena las colecciones del usuario
+    loading: false,
     shelfBooks: [], // Almacena los libros de una colección
-    error: null, // Almacena un error en caso de que ocurra
+    error: null,
   }),
   actions: {
     async searchBooks(query, maxResults = 20) {
@@ -25,7 +25,7 @@ export const useBooksStore = defineStore('books', {
       }
     },
 
-    // Obtener las coleccións predefinidas del usuario
+    // Obtener las colecciones predefinidas del usuario
     async getUserBookshelves() {
       const authStore = useAuthStore() // Obtiene la instancia del store de autenticación
       const token = authStore.token
@@ -48,8 +48,8 @@ export const useBooksStore = defineStore('books', {
         }
 
         const data = await response.json()
-        this.shelves = data.items // Guardar las coleccións en el estado
-        return data.items // Retornar las coleccións
+        this.shelves = data.items // Guardar las colecciones en el estado
+        return data.items // Retornar las colecciones
       } catch (error) {
         console.error('Error fetching shelves:', error)
         throw error
@@ -84,9 +84,8 @@ export const useBooksStore = defineStore('books', {
         }
 
         const data = await response.json()
-        // Asegúrate de que data.items sea un array
-        this.shelfBooks = data.items || [] // Si no hay libros, devuelve un array vacío
-        return this.shelfBooks // Retornar los libros
+        this.shelfBooks = data.items || [] // devuelve un array vacío si no hay libros
+        return this.shelfBooks
       } catch (error) {
         this.error = error.message || 'Error al obtener los libros de la colección.'
         console.error('Error fetching books from shelf:', error)
@@ -194,7 +193,7 @@ export const useBooksStore = defineStore('books', {
         // Verificar si hay libros en la colección
         if (books.length === 0) {
           console.log('La colección ya está vacía.')
-          return // No hacer nada si no hay libros
+          return // si ya está vacía no hace nada
         }
 
         // Eliminar cada libro de la colección

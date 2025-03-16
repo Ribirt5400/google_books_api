@@ -57,12 +57,12 @@ export default {
     name: 'ProfilePage',
     data() {
         return {
-            user: null, // Almacena la información del usuario
-            bookshelves: [], // Almacena las coleccións del usuario
-            profileLoading: false, // Indica si se está cargando la información del perfil
-            shelvesLoading: false, // Indica si se está cargando la información de las coleccións
-            profileError: null, // Almacena un error en caso de que ocurra al obtener el perfil
-            shelvesError: null, // Almacena un error en caso de que ocurra al obtener las coleccións
+            user: null, // almacena la info del usuario
+            bookshelves: [], // colecciones del usuario
+            profileLoading: false, // Indica si se está cargando la info del perfil
+            shelvesLoading: false,
+            profileError: null, // por si hay un error al obtener la info del perfil
+            shelvesError: null,
         };
     },
     computed: {
@@ -133,7 +133,7 @@ export default {
 
             try {
                 await booksStore.clearShelf(shelfId);
-                // Actualizar la lista de coleccións después de vaciar
+                // Actualizar la lista de colecciones después de vaciar
                 await this.fetchBookshelves();
 
                 // Mostrar mensaje de éxito

@@ -18,11 +18,11 @@ export default {
             if (this.searchQuery.trim() !== '') {
                 this.$emit('search', this.searchQuery);
             } else {
-                this.$emit('search', ''); // Emitir una cadena vacía para limpiar los resultados
+                this.$emit('search', ''); // sale una lista vacía so no hay nada en la barra de busqueda
             }
         },
         handleSearch() {
-            // Emitir la consulta cuando el usuario presiona "Buscar"
+            // al pulsar el botón de buscar se emite la consulta, aunque se hace automáticamente al escribir
             this.$emit('search', this.searchQuery);
         },
     },
@@ -37,7 +37,6 @@ export default {
     gap: 10px;
     padding: 10px;
     flex-wrap: wrap;
-    /* Permite que se ajuste en pantallas pequeñas */
 }
 
 input[type="text"] {
@@ -45,12 +44,10 @@ input[type="text"] {
     max-width: 300px;
     padding: 8px 12px;
     border: 2px solid #8B4513;
-    /* Marrón clásico */
     border-radius: 20px;
     font-size: 16px;
     font-family: 'Garamond', serif;
     background-color: #FAF3E0;
-    /* Beige claro */
     color: #000;
 }
 
@@ -64,7 +61,6 @@ button {
     border: none;
     border-radius: 20px;
     background-color: #B22222;
-    /* Rojo oscuro */
     color: white;
     font-size: 16px;
     font-family: 'Garamond', serif;
@@ -74,7 +70,6 @@ button {
 
 button:hover {
     background-color: #8B4513;
-    /* Marrón clásico */
 }
 
 /* Responsive */
