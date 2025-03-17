@@ -65,3 +65,12 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
 3.  **Accede a la aplicación:**\
     Abre tu navegador y visita `http://localhost:5173`.
+
+
+
+
+
+
+
+
+https://console.cloud.google.com/auth/clients/1045115965460-07kbq3i0gps2hahuidj9dm6p4eu9vbn6.apps.googleusercontent.com?inv=1&invt=AbsRhw&project=libros-app-453416
