@@ -8,7 +8,6 @@
 <script>
 import Navbar from '@/components/Navbar.vue'; // Importa el Navbar
 import { useAuthStore } from '@/stores/authStore'; // Importa el store de autenticación
-import './vee-validate-config';
 
 export default {
   name: 'App',

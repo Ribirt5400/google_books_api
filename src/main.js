@@ -4,10 +4,8 @@ import App from './App.vue'
 import router from './router'
 import '@/assets/styles.scss'
 import 'bootstrap/dist/css/bootstrap.css'
-import { Form, Field, ErrorMessage } from 'vee-validate'
 import GAuth from 'vue3-google-oauth2'
 import { CLIENT_ID } from './services/auth'
-import './vee-validate-config'
 
 // Config de OAuth2
 const gAuthOptions = {
