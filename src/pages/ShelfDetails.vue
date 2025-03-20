@@ -9,7 +9,7 @@
         </div>
         <div v-else>
             <div v-if="books.length > 0">
-                <div v-for="book in books" :key="book.id" class="book-card">
+                <div v-for="book in books" :key="book.id" class="book-card" @click="goToBookDetails(book.id)">
                     <h3>{{ book.volumeInfo.title }}</h3>
                     <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
                     <button @click="removeBook(book.id)" class="btn btn-danger">Eliminar</button>
@@ -46,6 +46,10 @@ export default {
         await this.fetchBooksFromShelf();
     },
     methods: {
+        goToBookDetails(book) {
+            this.$router.push({ name: 'book-details', params: { id: book } });
+        },
+
         async fetchBooksFromShelf() {
             const booksStore = useBooksStore();
             this.loading = true;
